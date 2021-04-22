@@ -9,6 +9,7 @@ class TestController extends Controller
     public function actionCheck(){
         $postLifeCycle = new PostLifeCicle();
 
+        
         $word ="hello";
         $post = Post::find()->all();
 
