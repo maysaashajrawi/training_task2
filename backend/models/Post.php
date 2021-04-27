@@ -25,6 +25,9 @@ use yii\behaviors\BlameableBehavior;
  */
 class Post extends \yii\db\ActiveRecord
 {
+
+
+    const STATUS_BLOCK = 'block';
     /**
      * {@inheritdoc}
      */

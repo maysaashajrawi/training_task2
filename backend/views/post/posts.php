@@ -16,13 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
  <div class="post-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-   
-<!-- 
-    <p>
-        <?= Html::button('Create Post', ['value'=>Url::to('post/popup'),'class' => 'btn btn-success','id'=>'modalButton']) ?>
-    </p> -->
-
-
 
    <?php
  foreach($post as $value)
@@ -31,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="card">
 
   <div class="card-header">
+  
     <?= $value->title ?>
   </div>
   <hr/>
@@ -49,12 +43,21 @@ $this->params['breadcrumbs'][] = $this->title;
       ?>
        <hr/>
     <?= Html::a('Delete', ['deletepost', 'post_id' => $value->post_id], ['class' => 'btn btn-danger']) ?>
+    
+
     <hr/>
   </div>
 </div>
 <hr/>
+
+
+
   
- <?php }
+ <?php 
+
+}
+
+
 
 ?>
   

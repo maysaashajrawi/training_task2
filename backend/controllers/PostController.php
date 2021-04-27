@@ -41,6 +41,7 @@ class PostController extends Controller
     {
         $searchModel = new SearchPost();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
        
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -87,9 +88,9 @@ class PostController extends Controller
             
            
             if((bool)$post_id){
-                
+                // iterate throught data come from create post to get field and option values to save them in values table
                 foreach (Yii::$app->request->post() as $key => $value) {
-                   
+                  
                     if (strpos($key, 'field') !==  false) {
                         $field_id = (int)(substr($key, 6));
                         $option_id =(int)$value;
@@ -142,11 +143,36 @@ class PostController extends Controller
     {
         $post= new Post();
         $postGet=$post->userPosts(Yii::$app->user->id);
+        $pages = count($postGet)/3;
+
         // $model=Post::find()->where(['user_id'=>Yii::$app->user->id])->all();
         return $this->render('posts',[
             'post'=>$postGet,
+            'pages'=>$pages,
         ]);
+
        
+    }
+
+    public function actionGetposts(){
+        
+        $post = new Post();
+        $postGet=$post->userPosts(Yii::$app->user->id);
+        $per_page_record = 3;
+        $pages = count($postGet)/3;
+        $model=Post::find()->where(['user_id'=>Yii::$app->user->id])->orderBy([
+            'post_id' => SORT_ASC //specify sort order ASC for ascending DESC for descending      
+            ])->limit(3)->all();
+        
+
+
+        return $this->render('posts',[
+            'post'=>$model,
+            'pages'=>$pages,
+        ]);
+
+
+
     }
 
 

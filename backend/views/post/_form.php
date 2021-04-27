@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use backend\models\Category;
 use backend\models\Country;
+
 /* @var $this yii\web\View */
 /* @var $model backend\models\Post */
 /* @var $form yii\widgets\ActiveForm */

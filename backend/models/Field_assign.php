@@ -95,6 +95,8 @@ class Field_assign extends \yii\db\ActiveRecord
         
     }
 
+
+
     /**
      * Gets query for [[Options]].
      *
